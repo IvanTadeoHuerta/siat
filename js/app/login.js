@@ -52,7 +52,7 @@ define(['connections','classie'], function(connections,classie){
                                             <img src="${atributos.imagenUrl}techproLogin.png" class="img-responsive" style="width: 340px; height: 100px;">
                                         </div>
                                         <div class="panel-body">
-                                            <form id="${atributos.formularioLogin.id}" role="form" onsubmit="return false;">
+                                            <form id="${atributos.formularioLogin.id}" role="form" autocomplete="off" onsubmit="return false;">
                                                 <fieldset>
                                                     <div class="form-group text-center">
                                                         <!--<input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>-->
@@ -74,7 +74,7 @@ define(['connections','classie'], function(connections,classie){
                                                     <label style="color:red" id="${atributos.etiquetaError.id}"></label>
                                                     <div class="col-md-4 col-sm-4 col-xs-12 col-md-offset-3 text-center">
                                                         <!-- Change this to a button or input when using this as a form -->
-                                                        <input type="submit" id="${atributos.botonLogin.id}" class="btn btn-default text-center" style="color: #99C21B; font: bold; margin-left: 5px;" value="Iniciar sesión"/>
+                                                        '<button type="submit" id="${atributos.botonLogin.id}" class="btn btn-default text-center" style="color: #99C21B; font: bold; margin-left: 5px;">Iniciar sesión</button>
                                                     </div>
                     
                                                     
@@ -229,6 +229,7 @@ define(['connections','classie'], function(connections,classie){
 
               },
               error: function(xmlhttp) {
+                  $('#' + atributos.botonLogin.id ).prop( 'disabled' , false);
                   if (xmlhttp.readyState == 0 && xmlhttp.status == 0) {
                       $('#' + atributos.etiquetaError.id).html('No se puede establecer conexión con el servidor');
                   } else {
@@ -237,10 +238,12 @@ define(['connections','classie'], function(connections,classie){
                  
               },
               beforeSend: function(){
+                $('#' + atributos.botonLogin.id ).prop( 'disabled' , true);
                 $('#' + atributos.etiquetaError.id).html('');
-                $('#'+atributos.botonLogin.id).html('<img src="'+atributos.imagenUrl+'btnImagenLogin.gif">');
+                $('#'+atributos.botonLogin.id).html('<img src="'+atributos.imagenUrl+'808.gif">');
               },
               complete: function(){
+                $('#' + atributos.botonLogin.id ).prop( 'disabled' , false);
                 $('#'+atributos.botonLogin.id).html('Iniciar sesión');
               }
           };
