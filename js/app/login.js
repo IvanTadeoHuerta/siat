@@ -57,24 +57,26 @@ define(['connections','classie'], function(connections,classie){
                                                     <div class="form-group text-center">
                                                         <!--<input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>-->
                                                         <span class="input input--hoshi">
-                                                            <input class="input__field input__field--hoshi1" type="text" id="${atributos.usuario.id}" name="${atributos.usuario.name}" />
+                                                            <input class="input__field input__field--hoshi1" type="text" id="${atributos.usuario.id}" name="${atributos.usuario.name}"/>
                                                             <label class="input__label input__label--hoshi1 input__label--hoshi1-color-4" for="txtUsuario">
                                                                 <p><span class="input__label-content input__label-content--hoshi">USUARIO</span></p>
                                                             </label>
                                                         </span>
+                                                        <div class="errorUsuario" style="margin-top:-15px"></div>
                                                     </div>
                                                     <div class="form-group text-center">
                                                         <span class="input input--hoshi">
                                                             <input class="input__field input__field--hoshi1" type="password" id="${atributos.password.id}" name="${atributos.password.name}" />
                                                             <label class="input__label input__label--hoshi1 input__label--hoshi1-color-4" for="txtPassword">
-                                                                <p><span class="input__label-content input__label-content--hoshi">CONTRASEÑA</span><p>
+                                                                <p><span class="input__label-content input__label-content--hoshi">CONTRASEÑA</span></p>
                                                             </label>
                                                         </span>
+                                                        <div class="errorPassword" style="margin-top:-15px"></div>
                                                     </div>
                                                     <label style="color:red" id="${atributos.etiquetaError.id}"></label>
                                                     <div class="col-md-4 col-sm-4 col-xs-12 col-md-offset-3 text-center">
                                                         <!-- Change this to a button or input when using this as a form -->
-                                                        '<button type="submit" id="${atributos.botonLogin.id}" class="btn btn-default text-center" style="color: #99C21B; font: bold; margin-left: 5px;">Iniciar sesión</button>
+                                                        <button type="submit" id="${atributos.botonLogin.id}" class="btn btn-default text-center" style="color: #99C21B; font: bold; margin-left: 5px;">Iniciar sesión</button>
                                                     </div>
                     
                                                     
@@ -229,7 +231,6 @@ define(['connections','classie'], function(connections,classie){
 
               },
               error: function(xmlhttp) {
-                  $('#' + atributos.botonLogin.id ).prop( 'disabled' , false);
                   if (xmlhttp.readyState == 0 && xmlhttp.status == 0) {
                       $('#' + atributos.etiquetaError.id).html('No se puede establecer conexión con el servidor');
                   } else {
@@ -238,12 +239,10 @@ define(['connections','classie'], function(connections,classie){
                  
               },
               beforeSend: function(){
-                $('#' + atributos.botonLogin.id ).prop( 'disabled' , true);
                 $('#' + atributos.etiquetaError.id).html('');
-                $('#'+atributos.botonLogin.id).html('<img src="'+atributos.imagenUrl+'808.gif">');
+                $('#'+atributos.botonLogin.id).html('<img src="'+atributos.imagenUrl+'btnImagenLogin.gif">');
               },
               complete: function(){
-                $('#' + atributos.botonLogin.id ).prop( 'disabled' , false);
                 $('#'+atributos.botonLogin.id).html('Iniciar sesión');
               }
           };
@@ -296,7 +295,18 @@ define(['connections','classie'], function(connections,classie){
               submitHandler: function(form){
                   peticiones._login(connections.urlLogin,{action:'login',user: $('#'+atributos.usuario.id).val() , password: $('#'+atributos.password.id).val()});
 
+              },
+
+              errorPlacement: function(error, element) {
+                   if($(element[0]).attr('id') == 'usuario'){
+                        error.appendTo('.errorUsuario');
+                   }else if($(element[0]).attr('id') == 'password'){
+                        error.appendTo('.errorPassword');
+                   }
+                
               }
+    
+
             });
 
             jQuery.validator.addMethod("valueNotEquals", 
