@@ -12,14 +12,14 @@ require.config({
     baseUrl: '../',
     paths: {
         //Librerias utilizadas para el desarrollo
-        jquery: 'vendor/jquery/jquery.min',
-        bootstrapJs: 'vendor/bootstrap/js/bootstrap.min',
-        amplify: 'js/libs/amplify',
-        validate: 'js/libs/validate',
-        widget: 'js/libs/jquery-ui.min',
-        metisMenu: 'vendor/metisMenu/metisMenu.min',
-        admin: 'dist/js/sb-admin-2',
-        classie: 'dist/js/classie',
+        jquery: 'vendors/jquery/jquery.min',
+        bootstrapJs: 'vendors/bootstrap/bootstrap.min',
+        amplify: 'vendors/amplify/amplify',
+        validate: 'vendors/validate/validate',
+        widget: 'vendors/jquery/jquery-ui.min',
+        metisMenu: 'vendors/metisMenu/metisMenu.min',
+        admin: 'vendors/sb-admin-2/sb-admin-2.min',
+        classie: 'vendors/classie/classie',
         
 
         //App 
