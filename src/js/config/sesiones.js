@@ -8,8 +8,8 @@
  * 
  */
 
-require(['login','estructura','connections'], function(login,estructura,connections) {
-    var tipoUsuario = amplify.store(connections.variableDeSesion);
+require(['login','estructura','routing'], function(login,estructura,routing) {
+    var tipoUsuario = amplify.store(routing.variableDeSesion);
 
     switch (tipoUsuario) {
         case null:

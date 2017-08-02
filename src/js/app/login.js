@@ -5,15 +5,15 @@
  *
  * Carga archivos de html , css y ejecuta ajax a un servidor para loageo. Representa el Login
  * @module login
- * @see js/app/connections.js
+ * @see js/app/routing.js
  * @see js/app/classie.js 
  * 
  */
 
-define(['connections','classie'], function(connections,classie){
+define(['routing','classie'], function(routing,classie){
      
      var atributos={
-        imagenUrl: '../img/',
+        imagenUrl: routing.rutaImagenes,
         derechos: 'Tech Pro® 2017 Todos Los Derechos Reservados',
         empresa: {
             id: 'empresa',
@@ -219,7 +219,7 @@ define(['connections','classie'], function(connections,classie){
                     }
 
                    SessionData.datosUsuario = json.data; 
-                   amplify.store(connections.variableDeSesion , SessionData );
+                   amplify.store(routing.variableDeSesion , SessionData );
 
                    $('body').estructuraGeneral({
                     tituloFormulario: 'Bienvenido',
@@ -293,7 +293,7 @@ define(['connections','classie'], function(connections,classie){
               },
 
               submitHandler: function(form){
-                  peticiones._login(connections.urlLogin,{action:'login',user: $('#'+atributos.usuario.id).val() , password: $('#'+atributos.password.id).val()});
+                  peticiones._login(routing.urlLogin,{action:'login',user: $('#'+atributos.usuario.id).val() , password: $('#'+atributos.password.id).val()});
 
               },
 

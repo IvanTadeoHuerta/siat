@@ -1,8 +1,8 @@
 /**
- * @fileoverview connections.js  Contiene las dirreciones a los services de los que se extraerá la información 
+ * @fileoverview routing.js  Contiene las dirreciones a los services de los que se extraerá la información 
  * @author Ivan Tadeo Huerta <ivantec5sem@gmail.com>
  *
- * Almacena un objecto con las direcciones a los services, variable de session name y datos de scope global.
+ * Almacena un objecto con las direcciones a los services, variable de session name, datos de scope global y rutas.
  * @exports coonections
  * 
  */
@@ -12,6 +12,7 @@ define([], function() {
 
     datosGlobales= {
     	variableDeSesion: 'dataSession',
+        rutaImagenes: '../dist/img/',
         urlLogin: {
             url: StringUrl + 'Login',
             type: 'POST',

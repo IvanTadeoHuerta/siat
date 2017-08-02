@@ -13,7 +13,7 @@ require.config({
     paths: {
         //Librerias utilizadas para el desarrollo
         jquery: 'vendors/jquery/jquery.min',
-        bootstrapJs: 'vendors/bootstrap/bootstrap.min',
+        bootstrapJs: 'vendors/bootstrap/js/bootstrap.min',
         amplify: 'vendors/amplify/amplify',
         validate: 'vendors/validate/validate',
         widget: 'vendors/jquery/jquery-ui.min',
@@ -23,10 +23,11 @@ require.config({
         
 
         //App 
-        estructura: 'js/app/estructura',
-        login: 'js/app/login',
-        connections: 'js/app/connections',
-        sesiones: 'js/app/sesiones'
+        estructura: 'src/js/config/estructura',
+        routing: 'src/js/config/routing',
+        sesiones: 'src/js/config/sesiones',
+        login: 'src/js/app/login',
+
 
     },
     shim: {
@@ -64,15 +65,15 @@ require.config({
  */
 require(['sesiones'], function() {
     $.when(
-        $('<link>', { rel: 'stylesheet', type: 'text/css', href: '../css/normalize.css' }).appendTo('head'),
-        $('<link>', { rel: 'stylesheet', type: 'text/css', href: '../css/demo.css' }).appendTo('head'),
-        $('<link>', { rel: 'stylesheet', type: 'text/css', href: '../css/set1.css' }).appendTo('head'),
-        $('<link>', { rel: 'stylesheet', type: 'text/css', href: '../vendor/bootstrap/css/bootstrap.min.css' }).appendTo('head'),
-        $('<link>', { rel: 'stylesheet', type: 'text/css', href: '../vendor/metisMenu/metisMenu.min.css' }).appendTo('head'),
+        $('<link>', { rel: 'stylesheet', type: 'text/css', href: '../vendors/bootstrap/css/bootstrap.min.css' }).appendTo('head'),
+        $('<link>', { rel: 'stylesheet', type: 'text/css', href: '../vendors/font-awesome/css/font-awesome.min.css' }).appendTo('head'),
         $('<link>', { rel: 'stylesheet', type: 'text/css', href: '../dist/css/sb-admin-2.css' }).appendTo('head'),
-        $('<link>', { rel: 'stylesheet', type: 'text/css', href: '../vendor/font-awesome/css/font-awesome.min.css' }).appendTo('head'),
-        $('<link>', { rel: 'stylesheet', type: 'text/css', href: '../css/mycss.css' }).appendTo('head'),
-        $('<link>', { rel: 'stylesheet', type: 'text/css', href: '../css/colorError.css' }).appendTo('head')
+        $('<link>', { rel: 'stylesheet', type: 'text/css', href: '../vendors/metisMenu/metisMenu.min.css' }).appendTo('head'),
+        $('<link>', { rel: 'stylesheet', type: 'text/css', href: '../src/css/normalize.css' }).appendTo('head'),
+        $('<link>', { rel: 'stylesheet', type: 'text/css', href: '../src/css/demo.css' }).appendTo('head'),
+        $('<link>', { rel: 'stylesheet', type: 'text/css', href: '../src/css/set1.css' }).appendTo('head'),
+        $('<link>', { rel: 'stylesheet', type: 'text/css', href: '../src/css/mycss.css' }).appendTo('head'),
+        $('<link>', { rel: 'stylesheet', type: 'text/css', href: '../src/css/colorError.css' }).appendTo('head')
     );
 });
 

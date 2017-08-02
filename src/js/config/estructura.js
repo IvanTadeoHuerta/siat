@@ -6,7 +6,7 @@
  *
  */
 
-require(['connections'], function(connections) {
+require(['routing'], function(routing) {
 
     $.widget("custom.estructuraGeneral", {
         // default options
@@ -246,7 +246,7 @@ require(['connections'], function(connections) {
 
             $('.logoutUser').on('click',function(){
                 /*Elimina variable de session*/
-                amplify.store(connections.variableDeSesion, null );
+                amplify.store(routing.variableDeSesion, null );
                 /*Recarga la pagina para mostrar login*/
                 location.reload();
                 
