@@ -44,7 +44,7 @@ define(['routing','classie'], function(routing,classie){
 
     var formulariosDOM={
           _login: function(){
-             return  `    <div class="container">
+             return  `<div class="container">
                             <div class="row">
                                 <div class="col-md-4 col-md-offset-4">                               
                                     <div class="login-panel panel-personalizado panel-default">
