@@ -102,14 +102,15 @@ define(['routing','classie'], function(routing,classie){
     var cleanDOM = {
         _login: function() {
             $('body').attr('class','');
-            $('body').empty();
         }
 
     };
 
     var drawDOM = {
         _login: function() {
-            $('body').html(formulariosDOM._login());
+            $('body').append(formulariosDOM._login());
+            $('.contenedor').fadeOut( "slow" );
+            
             $('body').attr('class','body-personalizado');
         }
 

@@ -1,4 +1,4 @@
-body {
+body.initBody {
     background: rgba(162, 199, 52, 1);
 
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a2c734', endColorstr='#529612', GradientType=0);

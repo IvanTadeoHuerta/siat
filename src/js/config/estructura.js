@@ -20,6 +20,7 @@ require(['routing'], function(routing) {
         _create: function() {
             //this.element.html('Bienvenido usuario de recursos Humanos');
             document.body.classList.remove('body-personalizado');
+            document.body.classList.add('estructuraBody');
             this.element.html(this._contruirEstructura());
             this._eventos();
 
