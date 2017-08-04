@@ -45,10 +45,10 @@ require.config({
             deps: ['jquery'],
         },
         sesiones:{
-            deps:['jquery','bootstrapJs','amplify','estructura']
+            deps:['jquery','bootstrapJs','amplify','estructura','loadCSS']
         },
         login: {
-            deps: ['validate','estructura','classie','loadCSS']
+            deps: ['validate','estructura','classie']
         },
         estructura:{
             deps: ['jquery','bootstrapJs' ,'amplify','widget','metisMenu','admin']
