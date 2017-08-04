@@ -1,0 +1,18 @@
+{
+  "name": "siat",
+  "version": "0.1.0",
+  "description": "\"Sistema de informacion administrativo tech pro\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tech-pro",
+    "siat"
+  ],
+  "author": "Ivan Tadeo Huerta <ivantec5sem@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
