@@ -12,7 +12,7 @@ define([], function() {
 
     datosGlobales= {
     	variableDeSesion: 'dataSession',
-        rutaImagenes: '../dist/img/',
+        rutaImagenes: '../src/img/',
         urlLogin: {
             url: StringUrl + 'Login',
             type: 'POST',
