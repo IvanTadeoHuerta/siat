@@ -12,7 +12,7 @@ require(['routing'], function(routing) {
         // default options
         options: {
             tituloFormulario: 'Nombre del formulario',
-            tituloHeader: 'sistema de información administrativo tech pro',
+            tituloHeader: 'Sistema de información administrativo tech pro',
             datosUsuario:[]
         },
 
