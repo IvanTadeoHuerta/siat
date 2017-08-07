@@ -1,0 +1,1 @@
+define([],function(){return StringUrl="http://localhost:8084/SIAT/",datosGlobales={variableDeSesion:"dataSession",rutaImagenes:"../src/img/",urlLogin:{url:StringUrl+"Login",type:"POST",dataType:"json"}},datosGlobales});

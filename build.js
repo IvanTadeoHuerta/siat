@@ -1,5 +1,5 @@
 ({
-    baseUrl: 'src/js',
+    baseUrl: 'tmp/js',
     paths: {
         //Librerias utilizadas para el desarrollo
         jquery: 'vendors/jquery/jquery.min',
@@ -13,13 +13,13 @@
 
 
         //Config 
-        estructura: 'src/js/config/estructura',
-        routing: 'src/js/config/routing',
-        sesiones: 'src/js/config/sesiones',
-        loadCSS: 'src/js/config/loadCSS',
+        estructura: 'tmp/js/config/estructura',
+        routing: 'tmp/js/config/routing',
+        sesiones: 'tmp/js/config/sesiones',
+        loadCSS: 'tmp/js/config/loadCSS',
 
         //App
-        login: 'src/js/app/login',
+        login: 'tmp/js/app/login',
 
 
     },
