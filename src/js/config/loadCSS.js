@@ -15,6 +15,6 @@ require(['loadCSS'], function() {
         $('<link>', { rel: 'stylesheet', type: 'text/css', href: '../vendors/font-awesome/css/font-awesome.min.css' }).appendTo('head'),
         $('<link>', { rel: 'stylesheet', type: 'text/css', href: '../src/css/mycss.css' }).appendTo('head'),
         $('<link>', { rel: 'stylesheet', type: 'text/css', href: '../src/css/colorError.css' }).appendTo('head'),
-        $('<link>', { rel: 'stylesheet', type: 'text/css', href: '../vendors/sb-admin-2/sb-admin-2.css' }).appendTo('head'),
+        $('<link>', { rel: 'stylesheet', type: 'text/css', href: '../vendors/sb-admin-2/sb-admin-2.css' }).appendTo('head')
     );
 });
