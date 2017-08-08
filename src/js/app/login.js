@@ -10,7 +10,7 @@
  * 
  */
 
-define(['routing','classie'], function(routing,classie){
+define(['routing','classie','validate'], function(routing,classie,validate){
      
      var atributos={
         imagenUrl: routing.rutaImagenes,

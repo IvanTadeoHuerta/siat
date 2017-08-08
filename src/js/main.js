@@ -44,23 +44,27 @@ require.config({
         loadCSS: {
             deps: ['jquery'],
         },
-        sesiones:{
-            deps:['jquery','bootstrapJs','amplify','estructura','loadCSS']
-        },
-        login: {
-            deps: ['validate','estructura','classie']
-        },
-        estructura:{
-            deps: ['jquery','bootstrapJs' ,'amplify','widget','metisMenu','admin']
-        },
         metisMenu:{
             deps: ['jquery'],
         },
         admin:{
             deps: ['jquery'], 
+        },
+        widget:{
+            deps: ['bootstrapJs'],
+        },
+        estructura:{
+            deps: ['jquery','bootstrapJs' ,'amplify','widget','metisMenu','admin']
+        },
+        sesiones:{
+            deps:['jquery','bootstrapJs','amplify','estructura','loadCSS']
+        },
+        login: {
+            deps: ['validate','estructura','classie']
         }
 
     },
-    deps:['sesiones']
+    deps:['sesiones'],
+    findNestedDependencies: true
 });
 

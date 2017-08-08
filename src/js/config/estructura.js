@@ -6,7 +6,7 @@
  *
  */
 
-require(['routing'], function(routing) {
+require(['routing','widget'], function(routing,widget) {
 
     $.widget("custom.estructuraGeneral", {
         // default options

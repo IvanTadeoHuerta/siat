@@ -1,1 +1,0 @@
-require(["login","estructura","routing"],function(i,a,e){var r=amplify.store(e.variableDeSesion);switch(r){case null:case void 0:i.init();break;default:$("body").estructuraGeneral({tituloFormulario:"Bienvenido",datosUsuario:r.datosUsuario})}});
