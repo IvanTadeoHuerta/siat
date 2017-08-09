@@ -2,15 +2,14 @@
  * Dependencias
  */
 var gulp = require('gulp');
-var shell = require('gulp-shell');
 var babel = require('gulp-babel');
-var uglify = require('gulp-uglify');
-var pump = require('pump');
 var replace = require('gulp-replace');
 var minifycss = require('gulp-minify-css');
 var concat = require('gulp-concat-css');
 var clean = require('gulp-clean');
 var gulpSequence = require('gulp-sequence');
+var javascriptObfuscator = require('gulp-javascript-obfuscator');
+var merge = require('merge-stream');
 
 /**
  * 
@@ -34,13 +33,13 @@ var cssUtilizados = [
 
 // Tarea para copiar las imagenes a la carpeta dist/img
 gulp.task('imagenes', function() {
-    gulp.src([config.sourcesDir + '/img/*.*']).pipe(gulp.dest(config.bowerDir + '/img'));
+    return gulp.src([config.sourcesDir + '/img/*.*']).pipe(gulp.dest(config.bowerDir + '/img'));
 });
 
 
 // Tarea para minificar archivos css y transladarlos a la carpeta dist/css
 gulp.task('minifyCss', function() {
-    gulp.src(cssUtilizados)
+    return gulp.src(cssUtilizados)
         .pipe(concat('app.css'))
         .pipe(minifycss())
         .pipe(gulp.dest(config.bowerDir + '/css'))
@@ -63,20 +62,29 @@ gulp.task('transpile', function () {
 
 //2.- Tarea para cambiar las direcciones del fuente al directorio tmp
 gulp.task('redirect', function() {
-    gulp.src(['tmp/js/main.js',]).pipe(replace('src', 'tmp')).pipe(gulp.dest('tmp/js'));
-    gulp.src(['tmp/js/config/loadCSS.js',])
+
+    var stream1 = gulp.src('tmp/js/main.js').pipe(replace('src', 'dist')).pipe(gulp.dest('tmp/js'));
+    var stream2 = gulp.src(['tmp/js/config/loadCSS.js',])
         .pipe(replace('/*<des>*/', '/*'))
         .pipe(replace('/*</des>*/', '*/'))
         .pipe(replace('/*pro', ''))
         .pipe(replace('pro*/', ''))
         .pipe(gulp.dest('tmp/js/config'));
-    gulp.src(['tmp/js/config/routing.js',]).pipe(replace('src', 'dist')).pipe(gulp.dest('tmp/js/config'));
+    var stream3 = gulp.src(['tmp/js/config/routing.js']).pipe(replace('src', 'dist')).pipe(gulp.dest('tmp/js/config'));
+
+    return merge(stream1, stream2, stream3);
 });
 
-// 3.- Tarea para generar un solo archivo JS 
-gulp.task('scriptsGlobal', shell.task([
-    'node node_modules\\requirejs\\bin\\r.js -o build.js'
-]));
+
+
+//3.- Tara para obfuscate codigo y minificar
+gulp.task('obfuscate', function () {
+    return gulp.src('tmp/js/**/*.js')
+    .pipe(javascriptObfuscator())
+    .pipe(gulp.dest('dist/js'));
+});
+
+
 
 // 4.- Tarea para limpiar carpeta tmp/js
 gulp.task('cleanTmp', function () {
@@ -84,22 +92,11 @@ gulp.task('cleanTmp', function () {
         .pipe(clean());
 });
 
-// 5 .- Tarea para minificar el archivo JS
-gulp.task('compress', function (cb) {
-  pump([
-        gulp.src('dist/js/app.js'),
-        uglify(),
-        gulp.dest('dist/js')
-    ],
-    cb
-  );
-});
 
 /*
  * Tarea para publicar el proyecto que será servido al cliente 
  */
-
-gulp.task('public', gulpSequence(['imagenes', 'minifyCss'],'transpile','redirect','scriptsGlobal','cleanTmp','compress'));
+gulp.task('public', gulpSequence(['imagenes', 'minifyCss','transpile'],'redirect','obfuscate','cleanTmp'));
 
 
 

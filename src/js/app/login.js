@@ -108,9 +108,8 @@ define(['routing','classie','validate'], function(routing,classie,validate){
 
     var drawDOM = {
         _login: function() {
+            $('.contenedor').fadeOut( 500 );
             $('body').append(formulariosDOM._login());
-            $('.contenedor').fadeOut( "slow" );
-            
             $('body').attr('class','body-personalizado');
         }
 
@@ -320,7 +319,7 @@ define(['routing','classie','validate'], function(routing,classie,validate){
     };
 
     var initialize = function() {
-        cleanDOM._login();
+        //cleanDOM._login();
         drawDOM._login();
         validaciones._login();
         events._login();
